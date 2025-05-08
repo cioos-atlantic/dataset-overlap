@@ -1,0 +1,225 @@
+{
+	"temperature": {
+		"__unknown": [
+			"sci_ocr504i_itemp"
+		],
+		"sea_surface_temperature": [
+			"tempp901",
+			"temperature (its-90) of the water body by ctd or std, 2",
+			"sci_oxy3835_temp",
+			"temperature of the water body, 2",
+			"sea_water_temperature",
+			"sci_oxy3835_wphase_temp",
+			"temperature (ipts-68) of the water body, 2",
+			"temps601",
+			"temppr02",
+			"tempp682",
+			"temperature (ipts-68) of the water body by ctd or std, 2",
+			"temps902",
+			"temperature (ipts-68) of the water body by ctd or std",
+			"optode water temperature",
+			"sci_oxy4_temp",
+			"temperature (its-90) of the water body",
+			"tempp681",
+			"temps602",
+			"temperature (ipts-68) of the water body",
+			"surface temp avg",
+			"temperature on the ocean surface of buoy location",
+			"surface_temp_avg",
+			"water_temperature",
+			"sea_surface_temperature",
+			"surface_temp",
+			"temperature of the water body",
+			"temperature",
+			"ctd cell water temperature",
+			"sea water temperature",
+			"temppr01",
+			"air_or_sea_water_temperature",
+			"air or sea water temperature",
+			"temperature (its-90) of the water body by ctd or std",
+			"temps901",
+			"temperature (its-90) of the water body, 2",
+			"tempp902",
+			"temperature_oc",
+			"temperature(o c)"
+		],
+		"sea_water_potential_temperature": [
+			"sea_water_potential_temperature",
+			"theta"
+		],
+		"dew_point_temperature": [
+			"dew_point",
+			"maximum dew point temperature",
+			"air_dewpoint_max",
+			"dew_point_temperature",
+			"air_dewpoint_min",
+			"air_dewpoint_avg",
+			"average dew point temperature"
+		],
+		"air_temperature": [
+			"air_temp_min",
+			"air temperature (min)",
+			"minimum air temperature",
+			"air_temperature",
+			"average air temperature",
+			"air temperature",
+			"air_temp_avg",
+			"air temperature 1min max",
+			"mean air temperature",
+			"air temp avg",
+			"air_temperature_1min_max",
+			"air_temp_max_1hr",
+			"air temperature max 1hr",
+			"air_temp",
+			"air_temp_max",
+			"maximum air temperature",
+			"air temperature (max)",
+			"air potential temperature",
+			"air_potential_temperature",
+			"air_temp_rolling_24hr_max",
+			"air temperature rolling 24hr max",
+			"air_temp_min_1hr",
+			"air temperature min 1hr"
+		],
+		"heat_index_of_air_temperature": [
+			"heat_index"
+		],
+		"product_of_air_temperature_and_specific_humidity": [
+			"humidex"
+		],
+		"soil_temperature": [
+			"soil temperature",
+			"soil_temp",
+			"soil_temperature"
+		],
+		"wind_chill_of_air_temperature": [
+			"wind_chill_of_air_temperature",
+			"wind_chill"
+		]
+	},
+	"salinity": {
+		"sea_water_absolute_salinity": [
+			"absolute corrected practical salinity",
+			"abs_salinity_lag_correct",
+			"sea_water_absolute_salinity"
+		],
+		"sea_water_salinity": [
+			"sea water practical salinity",
+			"sea water salinity",
+			"salinity",
+			"sea_water_practical_salinity",
+			"salinity_lag_correct",
+			"psalst01",
+			"practical salinity of the water body, 2",
+			"psltzz02",
+			"corrected practical salinity",
+			"practical salinity of the water body",
+			"psltzz01",
+			"psalst02",
+			"practical salinity of the water body by ctd and computation using unesco 1983 algorithm, 2",
+			"surface_salinity_avg",
+			"practical salinity of the water body by ctd and computation using unesco 1983 algorithm",
+			"practical salinity",
+			"salinity",
+			"sea_water_salinity"
+		]
+	},
+	"precipitation_rate": {
+		"lwe_precipitation_rate":[
+			"precip rain int (mm/hr)",
+			"lwe_precipitation_rate",
+			"precip_rate",
+			"precip_rain_int",
+			"lwe precipitation rate"
+		]
+	},
+	"concentration_molar": {
+		"mole_concentration_of_nitrate_in_sea_water": [
+			"mole concentration of nitrate in sea water",
+			"satslb0045_nitrate_um",
+			"mole_concentration_of_nitrate_in_sea_water",
+			"sci_suna_nitrate_concentration",
+			"nitrate concentration uncorrected"
+		],
+		"mole_concentration_of_dissolved_molecular_oxygen_in_sea_water": [
+			"oxygen_concentration",
+			"sci_oxy3835_oxygen",
+			"mole_concentration_of_dissolved_molecular_oxygen_in_sea_water",
+			"dissolved oxygen concentration",
+			"sci_oxy3835_wphase_oxygen",
+			"in situ oxygen concentration optode 4831",
+			"sci_oxy4_oxygen",
+			"mole_concentration_of_dissolved_molecular_oxygen_in_seawater",
+			"in situ oxygen concentration optode 3835"
+		]
+	},
+	"volume_ratio": {
+		"volume_fraction_of_oxygen_in_sea_water": [
+			"oxygen(m l/l)",
+			"oxygen_ml_l",
+			"doxyzz01",
+			"volume_fraction_of_oxygen_in_sea_water",
+			"oxygen, sbe 43"
+		]
+	},
+	"constant_": {
+		"relative_humidity":[
+			"humidity percent (%)",
+			"relative humidity rolling 24hr max",
+			"relative humidity",
+			"relative humidity (max)",
+			"rel_humidity_max",
+			"humidity_percent",
+			"relative_humidity",
+			"rel_humidity",
+			"relative humidity min 1hr",
+			"relative_humidity_min_1hr",
+			"humidity",
+			"air humidity avg",
+			"air_humidity_avg",
+			"rel_humidity_min",
+			"relative humidity rolling 24hr min",
+			"relative_humidity_rolling_24hr_min",
+			"relative humidity max 1hr",
+			"relative_humidity_max_1hr",
+			"relative_humidity_rolling_24hr_max",
+			"relative humidity (min)"
+		],
+       "fractional_saturation_of_oxygen_in_sea_water":[
+		    "fractional_saturation_of_oxygen_in_sea_water",
+			"sci_oxy3835_wphase_saturation",
+			"oxygen saturation",
+			"oxygen 4381"
+	   ]
+	},
+	"Soil Moisture": {
+		"volume_fraction_of_condensed_water_in_soil": [
+			"soil moisture",
+			"soil_moist",
+			"volume_fraction_of_condensed_water_in_soil"
+		]
+	},
+	"Turbidity": {
+		"sea_water_turbidity": [
+			"sea_water_turbidity",
+			"turbidity of water in the water body",
+			"turbntu01"
+		]
+	},
+	"light_flux": {
+		"downwelling_photosynthetic_photon_spherical_irradiance_in_sea_water": [
+			"par/irradiance, biospherical/licor",
+			"downwelling_photon_spherical_irradiance_in_sea_water",
+			"par irradiance",
+			"downwelling_photosynthetic_photon_spherical_irradiance_in_sea_water",
+			"surface photosynthetically active radiation",
+			"dwirrxud",
+			"irrduv01",
+			"photosynthetically active radiation",
+			"irrdsv01",
+			"surface_downwelling_photosynthetic_photon_spherical_irradiance_in_sea_water",
+			"sci_satpar_par"
+		]
+	}
+
+}
