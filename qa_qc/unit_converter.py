@@ -1,4 +1,4 @@
-
+from qa_qc.qaqc_utils_ import u2c_
 
 
 def convert_density(source_unit, source_value: float, target_unit):
@@ -106,7 +106,7 @@ def convert_pressure(source_unit, source_value, target_unit):
     return converted_value
 
 
-def convert_photon_flux(source_unit, source_value, target_unit, target_value=None):
+def convert_photon_flux(source_unit, source_value, target_unit):
     # Normalize and map units
     unit_map = {
         "µeinsteins/s/m^2": "umol",
@@ -138,11 +138,25 @@ def convert_photon_flux(source_unit, source_value, target_unit, target_value=Non
     return converted_value
 
 
-if __name__ == '__main__':
-    print(convert_length("km", 1, "m"))  # Output: 1000.0
-    print(convert_length("inch", 12, "cm"))  # Output: 30.48
-    print(convert_length("nmi", 1, "km")) # Output: 1.852
+def unit_convert(unit_1, value, unit_2):
+    cat_ = u2c_[unit_1.lower()]
+    di__ = { "length": convert_length,
+             "density":convert_density,
+             "pressure":convert_pressure,
+             "light_flux":convert_photon_flux
+             }
+    func_to_call = di__.get(cat_)
+    if func_to_call:
+        return func_to_call(unit_1, value, unit_2)
+    else:
+        raise Exception(f" [{cat_}] not found in conversion ")
 
-    print(convert_pressure("bar", 1, "Pa" ))  # 100000.0
-    print(convert_pressure("hPa", 1013.25, "inhg" ))  # ~29.92
-    print(convert_pressure("decibar", 10, "bar"))  # 0.1
+
+if __name__ == '__main__':
+    print(unit_convert("km", 1, "m"))  # Output: 1000.0
+    print(unit_convert("inch", 12, "cm"))  # Output: 30.48
+    print(unit_convert("nmi", 1, "km")) # Output: 1.852
+
+    print(unit_convert("bar", 1, "pa"))  # 100000.0
+    print(unit_convert("hpa", 1013.25, "inhg"))  # ~29.92
+    print(unit_convert("decibar", 10, "bar"))  # 1.0
