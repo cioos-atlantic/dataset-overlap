@@ -1,16 +1,11 @@
 import pandas as pd
 import numpy as np
 from pandas.api.types import CategoricalDtype
-import datetime as dt
+
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 
-"""
-This function generate the rolling standard deviation value for dataframe.
-The original function is implemented by CMAR https://github.com/dempsey-CMAR/qaqcmar/blob/master/R/qc_test_rolling_sd.R
-The based on past and future time-window points, the difference with the current point is calculated
-
-"""
 
 def apply_rolling_sd_with_time_reset(
         df,
@@ -48,31 +43,37 @@ def apply_rolling_sd_with_time_reset(
                 .std()
             )
             g = g.reset_index()
-            start_ = g.iloc[0][time_col_name]
-            for j in range(1, len(g[time_col_name])):
-                prev_point_ = g.iloc[j][time_col_name]
+            start_ = g.iloc[0][time_col]
+            for j in range(1, len(g[time_col])):
+                prev_point_ = g.iloc[j][time_col]
                 mints = (prev_point_ - start_).seconds / 60
                 if not (mints < (rolling_window_minutes/2)):
                     g.loc[0:j-1 , f'{value_col}_rolling_sd'] = np.nan
                     break
-            start_ = g.iloc[-1][time_col_name]
-            for j in range(len(g[time_col_name])-1, 0, -1):
-                prev_point_ = g.iloc[j][time_col_name]
+            start_ = g.iloc[-1][time_col]
+            for j in range(len(g[time_col])-1, 0, -1):
+                prev_point_ = g.iloc[j][time_col]
                 mints = (start_ - prev_point_).seconds / 60
                 if not (mints < (rolling_window_minutes / 2)):
                     g.loc[j+1: , f'{value_col}_rolling_sd'] = np.nan
                     break
             return g
 
-        rolled = group_df.groupby('segment', group_keys=False).apply(compute_rolling)
+        rolled = group_df.groupby('segment', group_keys=False).apply(compute_rolling, include_groups=False)
         results.append(rolled)
 
     # Combine all grouped results
-    final_df = pd.concat(results, ignore_index=True).drop(columns=['time_diff_min', 'segment'])
+    final_df = pd.concat(results, ignore_index=True).drop(columns=['time_diff_min'])
     return final_df
 
 
+
+
+
+
 if __name__ == '__main__':
+
+
     period_hours = 24
     max_interval_hours = 2 # haven't applied yet
 
@@ -82,8 +83,6 @@ if __name__ == '__main__':
     group_by_col = ['county', 'station', 'deployment_range', 'sensor_serial_number']
     qt_df_ = pd.read_csv("2024-10-24_cmar_water_quality_thresholds.csv")
     sample_df_ = pd.read_csv("sample_rolling_sd_data.csv")
-
-
 
     retu_ = apply_rolling_sd_with_time_reset(
         sample_df_,
@@ -97,21 +96,21 @@ if __name__ == '__main__':
                 retu_[std_col_name].isna(),
                 retu_[std_col_name] > 2.99
     ]
-    choices = [9, 2]
-    default_val = 1
-    retu_['dissolve_oxygen_flag'] = np.select( conditions, choices, default=default_val)
-    category_colors = {2: 'red', 9: 'blue', 1: 'green'}
-    colors = retu_['dissolve_oxygen_flag'].map(category_colors)
-    plt.figure(figsize=(6, 4))
-    plt.scatter( [i for i in range(len(retu_['dissolved_oxygen_percent_saturation']))] , retu_['dissolved_oxygen_percent_saturation'], c=colors)
-
-    for cat in category_colors:
-        plt.scatter([], [], c=category_colors[cat], label=cat)
-    # Optional: add legend
-    plt.legend(title='Category')
-
-    plt.xlabel("X")
-    plt.ylabel("Y")
-    plt.title("Scatter Plot Colored by Category")
-    plt.show()
-    a = 10
+    choices = [QartodFlags.UNKNOWN, QartodFlags.SUSPECT]
+    default_val = QartodFlags.GOOD
+    # retu_['dissolve_oxygen_flag'] = np.select( conditions, choices, default=default_val)
+    # category_colors = {2: 'red', 9: 'blue', 1: 'green'}
+    # colors = retu_['dissolve_oxygen_flag'].map(category_colors)
+    # plt.figure(figsize=(6, 4))
+    # plt.scatter( [i for i in range(len(retu_['dissolved_oxygen_percent_saturation']))] , retu_['dissolved_oxygen_percent_saturation'], c=colors)
+    #
+    # for cat in category_colors:
+    #     plt.scatter([], [], c=category_colors[cat], label=cat)
+    # # Optional: add legend
+    # plt.legend(title='Category')
+    #
+    # plt.xlabel("X")
+    # plt.ylabel("Y")
+    # plt.title("Scatter Plot Colored by Category")
+    # plt.show()
+    # a = 10

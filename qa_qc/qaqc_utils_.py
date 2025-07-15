@@ -9,6 +9,7 @@ from sklearn.cluster import DBSCAN
 import numpy as np
 import pandas as pd
 
+
 erdap_dict_ = pickle.load(open("../res/alldataset_das_dict_NEW.pkl", 'rb'))
 file_graph_gen_ = "../res/graph_variable_instrument_relation_4_GEN.pkl"
 mjg_filepath = "../res/graph_variable_instrument_relation_mannual_joining.pkl"
@@ -16,7 +17,7 @@ gen_graph_ = pickle.load(open(file_graph_gen_, 'rb'))
 man_graph = pickle.load(open(mjg_filepath, 'rb'))
 nomenc_ = json.load(open("nomenclature.json",'r', encoding='utf-8'))
 unit_json = json.load(open("unit_2_unit.json", 'r', encoding='utf-8'))
-qaqc_conf = json.load(open("ocean_qa_qc_config_v8.json",'r', encoding='utf-8'))
+qaqc_conf = json.load(open("ocean_qa_qc_config_v4.json",'r', encoding='utf-8'))
 
 test_order_ = ["Deepest Pressure Test",
                "Platform Identification",
@@ -286,3 +287,9 @@ def check_unit_similarity(unit_1, unit_2):
 
 node_unit_asso_, unit_node_asso = get_node_unit_association()
 u2c_ = dict_inv(unit_json)
+
+
+
+
+
+

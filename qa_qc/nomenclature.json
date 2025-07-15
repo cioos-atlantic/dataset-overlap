@@ -133,13 +133,16 @@
 			"lwe precipitation rate"
 		]
 	},
-	"concentration_molar": {
+	"density": {
 		"mole_concentration_of_nitrate_in_sea_water": [
 			"mole concentration of nitrate in sea water",
 			"satslb0045_nitrate_um",
 			"mole_concentration_of_nitrate_in_sea_water",
 			"sci_suna_nitrate_concentration",
-			"nitrate concentration uncorrected"
+			"nitrate concentration uncorrected",
+			"mass concentration of nitrate in sea water",
+			"mass_concentration_of_nitrate_in_sea_water",
+			"satslb0045_nitrate_mg"
 		],
 		"mole_concentration_of_dissolved_molecular_oxygen_in_sea_water": [
 			"oxygen_concentration",
@@ -150,7 +153,45 @@
 			"in situ oxygen concentration optode 4831",
 			"sci_oxy4_oxygen",
 			"mole_concentration_of_dissolved_molecular_oxygen_in_seawater",
-			"in situ oxygen concentration optode 3835"
+			"in situ oxygen concentration optode 3835",
+			"mass concentration of oxygen in sea water",
+			"mass_concentration_of_oxygen_in_sea_water"
+		],
+		"mass_concentration_of_chlorophyll_in_sea_water": [
+			"mass_concentration_of_chlorophyll_in_sea_water",
+			"chlorophyll concentration by fluorometer",
+			"mass_concentration_of_chlorophyll_a_in_sea_water",
+			"cphlpr01",
+			"cphlpr02",
+			"chlorophyll a fluorescence",
+			"volume scattering function chlorophyll (695 nm, 110 deg)",
+			"chlorophyll concentration by fluorometer",
+			"sci_flbbcd_chlor_units",
+			"concentration_of_chlorophyll_in_sea_water"
+		],
+		"sea_water_density": [
+			"sea_water_density",
+			"sea water density",
+			"in situ density"
+		],
+		"sea_water_sigma_t": [
+			"sea_water_sigma_t",
+			"sea_water_sigma_theta",
+			"sigmatheta",
+			"sigteq01",
+			"sigma-t"
+		],
+		"concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate": [
+			"concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate",
+			"concentration of coloured dissolved organic matter {cdom gelbstoff} per unit volume of the water body [dissolved plus reactive particulate phase] by fluorometry",
+			"cdomzz02",
+			"ccomd002",
+			"cdomzz01"
+		],
+		"mass_concentration_of_oxygen_in_sea_water": [
+			"oxygen(mg/l)",
+			"oxygen_mg_l",
+			"dissolved_oxygen_uncorrected"
 		]
 	},
 	"volume_ratio": {
