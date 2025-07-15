@@ -1,4 +1,4 @@
-This repository contains several packages
+This repository contains several packages:
 
 # download
 This package contains code to download metadata from CKAN and Erddap.
@@ -11,8 +11,8 @@ This package contains code to download metadata from CKAN and Erddap.
 > `__download_erddap_metadata.py` downloades the metadata from erddap and generated `alldataset_das_dict_NEW.pkl`
 
 # Dataset Similarity
-This package analysis the metadata of all dataset and find the similarity between datasets in terms of attributes, time window, and spatial coverage. 
+This package analysis the metadata of all dataset and find the similarity between datasets in terms of attributes, time window, and spatial coverage. The heatmap plot can be generated:
 
-
+![](/res/heatmap_data_overlap.png)
 
 # qa_qc
