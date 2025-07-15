@@ -5,6 +5,13 @@ import datetime as dt
 import matplotlib.pyplot as plt
 
 
+"""
+This function generate the rolling standard deviation value for dataframe.
+The original function is implemented by CMAR https://github.com/dempsey-CMAR/qaqcmar/blob/master/R/qc_test_rolling_sd.R
+The based on past and future time-window points, the difference with the current point is calculated
+
+"""
+
 def apply_rolling_sd_with_time_reset(
         df,
         time_col='time',
