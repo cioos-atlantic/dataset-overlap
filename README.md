@@ -18,3 +18,8 @@ Run any `__ploting*.py` then it will start a visualization server, click `http:/
 ![](/res/heatmap_data_overlap.png)
 
 # qa_qc
+This package include QA/QC related code. Some highlights include:
+
+It contains code to generate line plots of dataset to see how values are changing over time. 
+
+![](/res/Plotly_Sample.png)
