@@ -24,6 +24,9 @@ This package include QA/QC related code. Some highlights include:
 
 ![](/res/Plotly_Sample.png)
 
+- EoV Value distribution 
+
+![](/res/histogram_sample.png)
 - Unit Converter
 
 - Rolling Standard Deviation IOOS_QC function
