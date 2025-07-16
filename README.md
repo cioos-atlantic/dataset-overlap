@@ -26,6 +26,8 @@ This package include QA/QC related code. Some highlights include:
 
 - Unit Converter
 
+- Rolling Standard Deviation IOOS_QC function
+
 - Extracting SUSPECT label window points from datasets
 
 - Multi-layer perceptron Model
