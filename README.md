@@ -20,8 +20,14 @@ Run any `__ploting*.py` then it will start a visualization server, click `http:/
 # qa_qc
 This package include QA/QC related code. Some highlights include:
 
-It contains code to generate line plots of dataset to see how values are changing over time. 
+- It contains code to generate line plots of dataset to see how values are changing over time. 
 
 ![](/res/Plotly_Sample.png)
 
-Unit Converter
+- Unit Converter
+
+- Extracting SUSPECT label window points from datasets
+
+- Multi-layer perceptron Model
+
+- Random Forest Model
