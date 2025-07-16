@@ -31,6 +31,8 @@ This package include QA/QC related code. Some highlights include:
 
 - Rolling Standard Deviation IOOS_QC function
 
+Source: https://dempsey-cmar.github.io/cmp-data-governance/pages/qc_tests.html
+
 - Extracting SUSPECT label window points from datasets
 
 - Multi-layer perceptron Model
