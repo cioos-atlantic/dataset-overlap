@@ -1,0 +1,68 @@
+import plotly.express as px
+import pandas as pd
+import os
+import re
+from ai_utils import get_file_names
+import plotly.io as pio
+
+if __name__ == '__main__':
+    dir_ = "D:/CIOOS-Full-Data/chunking/Annapolis/"
+    fnames_ = get_file_names(dir_)
+    # fnames_ = ["Cape Breton County Water Quality Data.csv-1.csv", "Cape Breton County Water Quality Data.csv-2.csv"]
+    eov_col_name = 'temperature'
+    eov_flag_name = 'qc_flag_temperature'
+    lst_of_dfs = []
+    for i, fname in enumerate(fnames_):
+        fname = os.path.basename(fname)
+        match = re.search(r'-(\d+)\.csv$', fname)
+        if match:
+            i = int(match.group(1))
+        fname = os.path.join(dir_, fname)
+        df = pd.read_csv(fname, usecols=['time', eov_flag_name, eov_col_name])
+        df['time'] = pd.to_datetime(df['time'])
+        df['ID'] = i
+        lst_of_dfs.append(df)
+
+    new_df_ = pd.concat(lst_of_dfs)
+
+    figures = []
+    for id_, df_group in new_df_.groupby('ID'):
+        fig = px.line(df_group, x='time', y=eov_col_name,
+                      title=f'Plot ID: {id_}')
+        fig.update_layout(height=400)
+        figures.append(fig)
+
+    # Convert all figures to HTML fragments
+    html_parts = [pio.to_html(fig, include_plotlyjs=(i == 0), full_html=False) for i, fig in enumerate(figures)]
+
+    # Build scrollable HTML page
+    html_page = f"""
+        <html>
+        <head>
+            <style>
+                body {{
+                    margin: 0;
+                    padding: 0;
+                    height: 100vh;
+                    overflow-y: scroll;
+                    font-family: Arial, sans-serif;
+                }}
+                .plot-container {{
+                    margin: 20px;
+                    border-bottom: 1px solid #ccc;
+                    padding-bottom: 20px;
+                }}
+            </style>
+        </head>
+        <body>
+            {''.join([f'<div class="plot-container">{plot}</div>' for plot in html_parts])}
+        </body>
+        </html>
+        """
+
+    # Save to scrollable HTML
+    out_path = os.path.join(dir_, "visualize_scrollable.html")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_page)
+
+    print(f"Saved scrollable plot to: {out_path}")
