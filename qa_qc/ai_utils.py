@@ -156,32 +156,33 @@ def get_xy_from_dataframe(df,eov_flag_name,eov_col_name, window_hours, min_rows_
         # if label == QartodFlags.SUSPECT:
         #     a = 10
         spike_ref_ = ((past_window.tail(1).values[0] + future_window.head(1).values[0])/2)
-        try:
-            features = [
-                current_rolling,
-                abs(past_window.mean() - current_value),
-                abs(future_window.mean() - current_value),
-                abs(future_window.mean() - past_window.mean()),
-                abs( current_value - spike_ref_ ),
-                abs(avg_hourly_change - abs(past_window.tail(1).values[0] - current_value)),
-                abs(avg_hourly_change - abs(future_window.head(1).values[0] - current_value)),
-                q_997,
-                q_003,
-                fwq_997,
-                fwq_003,
-                label
-            ]
-        except:
-            traceback.print_exc()
-            print(past_window)
-            print(future_window)
-            exit(-1)
+
+        month_feature = np.eye(12, dtype=int)[current_['time'].month - 1]
+        month_feature[current_['time'].month - 1] = 1
+        past_mean = past_window.mean()
+        future_mean = future_window.mean()
+        features = np.array([
+            current_rolling,
+            abs(past_mean - current_value),
+            abs(future_mean - current_value),
+            abs(future_mean - past_mean),
+            abs( current_value - spike_ref_ ),
+            abs(avg_hourly_change - abs(past_window.tail(1).values[0] - current_value)),
+            abs(avg_hourly_change - abs(future_window.head(1).values[0] - current_value)),
+            q_997,
+            q_003,
+            fwq_997,
+            fwq_003,
+            *month_feature,
+            label
+        ])
+
         # if np.sum(np.isnan(np.array(features))) > 0:
         #     a =10
-        X.append(np.round(np.array(features), 3))
+        X.append(features)
 
     X = np.vstack(X)
-
+    X = np.round(X, 3)
     mask = X[:, -1] == QartodFlags.SUSPECT
     suspect_row = X[mask]
     mask_f = X[:, -1] == QartodFlags.FAIL

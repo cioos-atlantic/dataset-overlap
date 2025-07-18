@@ -7,11 +7,6 @@ from matplotlib.backends.backend_pdf import PdfPages
 from qa_qc.qaqc_utils_ import get_eov_info
 
 
-"""
-This file create  a line plot in PDF from .csv file of dataset. 
-The data is plotted month-wise in each page
-"""
-
 def is_file_bigsize(file_path, threshold_mb=100):
     ''' check if the size of file is bigger than given threshold'''
     if not isinstance(file_path, str) or not file_path:

@@ -22,11 +22,13 @@ if __name__ == '__main__':
 
     parent_ = "D:/CIOOS-Full-Data/chunking/"
     subdir_ = get_dirs(parent_)
-    for ds__ in subdir_:
-        # chunk_dir = os.path.join(parent_, "Annapolis/")
-        chunk_dir = os.path.join(parent_, ds__,"")
-        file_names = get_file_names(chunk_dir)
-        with PdfPages(os.path.join(parent_, os.path.dirname(chunk_dir)+".pdf")) as pdf_:
+    output_file = os.path.join(parent_, os.path.dirname(parent_) + ".pdf")
+    with PdfPages(output_file) as pdf_:
+        for ds__ in subdir_:
+            # chunk_dir = os.path.join(parent_, "Annapolis/")
+            chunk_dir = os.path.join(parent_, ds__,"")
+            file_names = get_file_names(chunk_dir)
+
             for file_name in tqdm(file_names):
                 print(f"Processing : [{file_name}]")
                 df = pd.read_csv(file_name, usecols=['time', eov_flag_name, eov_col_name])
@@ -47,10 +49,12 @@ if __name__ == '__main__':
                 plt.ylabel('Count')
                 plt.title(file_name.replace(".csv",""))
                 plt.grid(True)
-                plt.xticks(bins, rotation=90)
+                ticks_ = [ vl for vl in bins if vl%2==0]
+                plt.xticks(ticks_, rotation=90)
                 plt.tight_layout()
                 save_path_ = os.path.join(parent_, os.path.basename(file_name.replace(".csv",".png")))
                 print(save_path_)
                 pdf_.savefig()
                 plt.close()
+    print(output_file)
             # plt.savefig(save_path_)

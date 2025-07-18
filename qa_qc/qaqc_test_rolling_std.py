@@ -81,7 +81,7 @@ if __name__ == '__main__':
     time_col_name = 'timestamp_utc'
     std_col_name = eov_col_name + '_rolling_sd'
     group_by_col = ['county', 'station', 'deployment_range', 'sensor_serial_number']
-    qt_df_ = pd.read_csv("2024-10-24_cmar_water_quality_thresholds.csv")
+    qt_df_ = pd.read_csv("res/2024-10-24_cmar_water_quality_thresholds.csv")
     sample_df_ = pd.read_csv("sample_rolling_sd_data.csv")
 
     retu_ = apply_rolling_sd_with_time_reset(
