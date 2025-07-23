@@ -33,8 +33,6 @@ if __name__ == '__main__':
     lst_of_node_s = ["in situ density from lag corrected salinity", "sea_water_sigma_t", "sea_water_sigma_theta", "mass concentration of nitrate in sea water", "mass concentration of oxygen in sea water", "concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate", "mass_concentration_of_chlorophyll_in_sea_water", "sigmatheta", "sigteq01", "density_lag_correct", "mass_concentration_of_oxygen_in_sea_water", "dissolved_oxygen_uncorrected", "chlorophyll concentration by fluorometer", "cphlpr02", "mass_concentration_of_nitrate_in_sea_water", "satslb0045_nitrate_mg", "cphlpr01", "ccomd002", "chlorophyll a fluorescence", "sci_flbbcd_chlor_units", "mass_concentration_of_chlorophyll_a_in_sea_water", "concentration of coloured dissolved organic matter {cdom gelbstoff} per unit volume of the water body [dissolved plus reactive particulate phase] by fluorometry", "cdomzz02", "sigteqst", "cdomzz01", "concentration_of_chlorophyll_in_sea_water", "volume scattering function chlorophyll (695 nm, 110 deg)", "oxygen(mg/l)", "oxygen_mg_l", "sci_flbbbbv1_fl_scaled", "sea water density", "density", "in situ density", "sigma-t", "sea_water_density", "fluorescence", "fluorescence, wet labs cdom"]
 
 
-
-
     erdap_dict_ = pickle.load(open("../res/alldataset_das_dict_NEW.pkl", 'rb'))
     t_list = []
     for dataset_ in erdap_dict_:
