@@ -1,3 +1,5 @@
+Jupyter notebooks are provided inside each package.
+
 This repository contains several packages:
 
 # download
